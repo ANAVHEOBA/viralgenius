@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViralGenius Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        video::-webkit-media-controls-timeline {
+            margin-inline: 10px;
+        }
+        video::-webkit-media-controls-panel {
+            background: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Main Container -->
+    <div class="flex">
+        <!-- Sidebar -->
+        <aside class="fixed left-0 h-screen w-64 bg-white border-r border-gray-200 p-4">
+            <!-- Logo Section -->
+            <div class="mb-8">
+                <div class="flex items-center">
+                    <img src="assets/images/logo.svg" alt="ViralGenius" class="h-8">
+                </div>
+            </div>
+
+            <!-- Navigation Menu -->
+            <nav class="space-y-2">
+                <!-- Dashboard -->
+                <a href="#" class="flex items-center space-x-3 p-3 rounded-lg text-gray-700 hover:bg-emerald-50 hover:text-emerald-600">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+
+                <!-- Navigation items continue... -->
+
+
+                                <!-- Connected Profiles -->
+                                <a href="#" class="flex items-center space-x-3 p-3 rounded-lg text-gray-700 hover:bg-emerald-50 hover:text-emerald-600">
+                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                                    </svg>
+                                    <span>Connected profiles</span>
+                                </a>
+                
+                                <!-- Calendar -->
+                                <a href="#" class="flex items-center space-x-3 p-3 rounded-lg text-gray-700 hover:bg-emerald-50 hover:text-emerald-600">
+                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    <span>Calendar</span>
+                                </a>
+                
+                                <!-- Agency Hub -->
+                                <a href="#" class="flex items-center space-x-3 p-3 rounded-lg text-gray-700 hover:bg-emerald-50 hover:text-emerald-600">
+                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                                    </svg>
+                                    <span>Agency hub</span>
+                                </a>
+                
+                                <!-- Reseller Hub -->
+                                <a href="#" class="flex items-center space-x-3 p-3 rounded-lg text-gray-700 hover:bg-emerald-50 hover:text-emerald-600">
+                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                    </svg>
+                                    <span>Reseller hub</span>
+                                </a>
+                            </nav>
+                
+                            <!-- Compose Button -->
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <button class="w-full bg-emerald-500 text-white py-2 px-4 rounded-lg hover:bg-emerald-600 transition-colors">
+                                    Compose
+                                </button>
+                            </div>
+                        </aside>
+                
+                        <!-- Main Content Area -->
+                        <main class="ml-64 flex-1">
+                            <!-- Top Header with User Section -->
+                            <div class="bg-white border-b border-gray-200">
+                                <div class="flex justify-end px-6 py-3">
+                                    <button class="flex items-center space-x-2 bg-emerald-500 text-white px-4 py-2 rounded-full hover:bg-emerald-600">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                                d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <span>User</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+
+
+                                        <!-- Project Header Section -->
+            <div class="p-6">
+                <div class="bg-white rounded-lg p-6 shadow-sm">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h1 class="text-xl font-medium text-gray-900">All Projects</h1>
+                            <p class="text-gray-500 text-sm mt-1">View and Edit all your Projects in one Dashboard</p>
+                        </div>
+                        <button onclick="openModal()" class="flex items-center space-x-2 bg-emerald-500 text-white px-4 py-2 rounded-lg hover:bg-emerald-600 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                            </svg>
+                            <span>Create Project</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Video Section -->
+            <div class="p-6">
+                <div id="mainVideoSection" class="hidden">
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden mb-6">
+                        <div class="aspect-video relative">
+                            <video id="mainVideo" class="w-full h-full object-cover" controls>
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-center">
+                                <h2 id="mainVideoTitle" class="text-xl font-medium text-gray-900"></h2>
+                                <div class="flex space-x-4">
+                                    <!-- Edit Button -->
+                                    <button class="text-gray-600 hover:text-gray-900">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                        </svg>
+                                    </button>
+                                    <!-- Share Button -->
+                                    <button class="text-gray-600 hover:text-gray-900">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                                d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                                        </svg>
+                                    </button>
+                                    <!-- Download Button -->
+                                    <button class="text-gray-600 hover:text-gray-900">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects Grid Section -->
+            <div class="p-6 bg-gray-50">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projectsGrid">
+                    <!-- Project cards will be added here dynamically -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+        <!-- Upload Modal -->
+        <div id="uploadModal" class="fixed inset-0 bg-gray-900/50 hidden items-center justify-center z-50">
+            <div class="bg-white rounded-lg w-full max-w-md mx-4">
+                <!-- Modal Header -->
+                <div class="flex justify-between items-center p-4 border-b">
+                    <h3 class="text-lg font-medium text-gray-900">Create New Project</h3>
+                    <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+    
+                <!-- Modal Body -->
+                <div class="p-4">
+                    <form id="uploadForm" class="space-y-4">
+                        <!-- Upload Area -->
+                        <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center" id="dropZone">
+                            <input type="file" id="fileInput" class="hidden" accept="video/*" multiple onchange="handleFileSelect(event)">
+
+                            <div class="space-y-2">
+                                <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                        d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                                </svg>
+                                <div class="text-gray-600">
+                                    <label for="fileInput" class="cursor-pointer text-emerald-500 hover:text-emerald-600">
+                                        Click to upload
+                                    </label>
+                                    or drag and drop
+                                </div>
+                                <p class="text-sm text-gray-500">MP4, WebM, Ogg (MAX. 800MB)</p>
+                            </div>
+                        </div>
+    
+                        <!-- File Details (Hidden initially) -->
+                        <div id="fileDetails" class="hidden space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-6 h-6 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                        d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                </svg>
+                                <span id="fileName" class="text-sm text-gray-600"></span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div id="uploadProgress" class="bg-emerald-500 h-2 rounded-full" style="width: 0%"></div>
+                            </div>
+                        </div>
+    
+                        <!-- Project Title -->
+                        <div>
+                            <label for="projectTitle" class="block text-sm font-medium text-gray-700">Project Title</label>
+                            <input type="text" id="projectTitle" 
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500">
+                        </div>
+                    </form>
+                </div>
+    
+                <!-- Modal Footer -->
+                <div class="flex justify-end space-x-3 p-4 border-t">
+                    <button onclick="closeModal()" 
+                        class="px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg">
+                        Cancel
+                    </button>
+                    <button onclick="handleUpload()" 
+                        class="px-4 py-2 text-sm font-medium text-white bg-emerald-500 hover:bg-emerald-600 rounded-lg">
+                        Upload
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- JavaScript -->
+        <script>
+            // Store for videos
+            let projects = [];
+    
+            function openModal() {
+                document.getElementById('uploadModal').classList.remove('hidden');
+                document.getElementById('uploadModal').classList.add('flex');
+            }
+    
+            function closeModal() {
+                document.getElementById('uploadModal').classList.add('hidden');
+                document.getElementById('uploadModal').classList.remove('flex');
+                document.getElementById('uploadForm').reset();
+                document.getElementById('fileDetails').classList.add('hidden');
+                document.getElementById('dropZone').classList.remove('hidden');
+                document.getElementById('uploadProgress').style.width = '0%';
+            }
+
+
+            function handleFileSelect(event) {
+    const files = event.target.files;
+    if (files.length > 0) {
+        showFileDetails(files);
+    }
+}
+
+function showFileDetails(files) {
+    const fileNames = Array.from(files).map(file => file.name).join(', ');
+    document.getElementById('fileName').textContent = `${files.length} files selected: ${fileNames}`;
+    document.getElementById('fileDetails').classList.remove('hidden');
+    document.getElementById('dropZone').classList.add('hidden');
+}
+
+function handleUpload() {
+    const files = document.getElementById('fileInput').files;
+    const title = document.getElementById('projectTitle').value;
+
+    if (!files.length || !title) {
+        alert('Please select files and enter a title');
+        return;
+    }
+
+    let progress = 0;
+    const progressBar = document.getElementById('uploadProgress');
+    
+    const interval = setInterval(() => {
+        progress += 10;
+        progressBar.style.width = progress + '%';
+        
+        if (progress >= 100) {
+            clearInterval(interval);
+            
+            // Create a project group for multiple videos
+            const projectGroup = {
+                title,
+                files: Array.from(files),
+                timestamp: Date.now()
+            };
+
+            // Add to projects array
+            projects.push(projectGroup);
+
+            // Create cards for each video
+            Array.from(files).forEach((file, index) => {
+                createProjectCard(title + ` (${index + 1}/${files.length})`, file, projectGroup);
+            });
+
+            // Show the first video in main section
+            const firstVideoUrl = URL.createObjectURL(files[0]);
+            document.getElementById('mainVideo').src = firstVideoUrl;
+            document.getElementById('mainVideoTitle').textContent = title;
+            document.getElementById('mainVideoSection').classList.remove('hidden');
+
+            setTimeout(() => {
+                closeModal();
+            }, 500);
+        }
+    }, 300);
+}
+
+<!-- Update the createProjectCard function in your JavaScript -->
+function createProjectCard(title, videoFile, projectGroup) {
+    const videoUrl = URL.createObjectURL(videoFile);
+    const card = `
+        <div class="bg-white rounded-lg overflow-hidden shadow-sm cursor-pointer hover:shadow-md transition-shadow" 
+             data-project-id="${projectGroup?.timestamp || Date.now()}"
+             onclick="showInMainSection('${videoUrl}', '${title}')">
+            <!-- Video Container -->
+            <div class="relative aspect-video bg-gray-100 overflow-hidden">
+                <video class="w-full h-full object-cover">
+                    <source src="${videoUrl}" type="${videoFile.type}">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            
+            <!-- Content Container -->
+            <div class="p-4">
+                <!-- Title -->
+                <h3 class="text-lg font-medium text-gray-900 mb-2">${title}</h3>
+                
+                <!-- Auto Delete Text -->
+                <p class="text-sm text-gray-600 mb-4">Auto Delete 20 day(s) left</p>
+                
+                <!-- Continue Editing Button -->
+                <button class="w-full bg-green-800 text-white py-2 px-4 rounded-lg hover:bg-green-900 transition-colors mb-4">
+                    completed continue editing
+                </button>
+                
+                <!-- Action Buttons -->
+                <div class="flex items-center justify-between">
+                    <!-- Left side buttons -->
+                    <div class="flex items-center space-x-4">
+                        <button class="text-gray-600 hover:text-gray-900" title="Edit">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                            </svg>
+                        </button>
+                        <button class="text-gray-600 hover:text-gray-900" title="View">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                            </svg>
+                        </button>
+                        <button class="text-gray-600 hover:text-gray-900" title="Share">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                    d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                            </svg>
+                        </button>
+                        <button class="text-gray-600 hover:text-gray-900" title="Download">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <!-- Right side delete button -->
+                    <button class="text-gray-600 hover:text-gray-900" title="Delete" onclick="deleteProject(this)">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+
+    const container = document.createElement('div');
+    container.innerHTML = card;
+    document.getElementById('projectsGrid').prepend(container.firstChild);
+}
+
+        function showInMainSection(videoUrl, title) {
+            const mainVideoSection = document.getElementById('mainVideoSection');
+            const mainVideo = document.getElementById('mainVideo');
+            const mainVideoTitle = document.getElementById('mainVideoTitle');
+
+            mainVideo.src = videoUrl;
+            mainVideoTitle.textContent = title;
+            mainVideoSection.classList.remove('hidden');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function handleUpload() {
+            const file = document.getElementById('fileInput').files[0];
+            const title = document.getElementById('projectTitle').value;
+
+            if (!file || !title) {
+                alert('Please select a file and enter a title');
+                return;
+            }
+
+            let progress = 0;
+            const progressBar = document.getElementById('uploadProgress');
+            
+            const interval = setInterval(() => {
+                progress += 10;
+                progressBar.style.width = progress + '%';
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    
+                    const videoUrl = URL.createObjectURL(file);
+                    document.getElementById('mainVideo').src = videoUrl;
+                    document.getElementById('mainVideoTitle').textContent = title;
+                    document.getElementById('mainVideoSection').classList.remove('hidden');
+
+                    projects.push({ title, file });
+                    createProjectCard(title, file);
+
+                    setTimeout(() => {
+                        closeModal();
+                    }, 500);
+                }
+            }, 300);
+        }
+
+        function deleteProject(button) {
+            const card = button.closest('.bg-white');
+            card.remove();
+        }
+
+        // Initialize drag and drop
+        document.addEventListener('DOMContentLoaded', () => {
+            const dropZone = document.getElementById('dropZone');
+
+            dropZone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                dropZone.classList.add('border-emerald-500');
+            });
+
+            dropZone.addEventListener('dragleave', (e) => {
+                e.preventDefault();
+                dropZone.classList.remove('border-emerald-500');
+            });
+
+            dropZone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                dropZone.classList.remove('border-emerald-500');
+                const file = e.dataTransfer.files[0];
+                if (file && file.type.startsWith('video/')) {
+                    document.getElementById('fileInput').files = e.dataTransfer.files;
+                    showFileDetails(file);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
